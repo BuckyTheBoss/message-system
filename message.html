@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="col-4">
+			<h3>From: {{message['from']}}</h3>
+			<h3>To: {{message['to']}}</h3>
+			<h3>Subject: </h3> 
+			<span>{{message['subject']}}</span>
+			<h3>Message Body: </h3> 
+			<textarea readonly>{{message['body']}}</textarea>
+		</div>
+		<div class="col-4"></div>
+	</div>	
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <title>{% block title %}Email{% endblock %}</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div>
+    <a class="navbar-brand" href="{{ url_for('show_messages') }}">
+      <img src="{{ url_for('static', filename='icons/mail.svg') }}" />
+      Inbox
+    </a>
+        <a class="navbar-brand" href="{{ url_for('show_sent_messages') }}">
+      <img src="{{ url_for('static', filename='icons/mail.svg') }}" />
+      Outbox
+    </a>
+  </div>
+      <div>
+        <a class="btn btn-primary btn-compose mr-3" href="{{url_for('compose')}}">
+          <img src="{{ url_for('static', filename='icons/pencil.svg') }}" />Compose</a>
+        <span class="mr-3">{{session['username']}}</span>
+        <a class="" href="{{url_for('logout')}}">Logout</a>
+      </div>
+  </nav>
+  {% block content %}{% endblock %}
+</body>
+
+</html>

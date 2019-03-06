@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="container">
+		<h1>New Message</h1>
+		<div class="mx-5">
+			<form method="post">
+				
+				<div class="form-group">
+					<label for="from-field">From:</label>
+				<input name="from" class="form-control" type="text" value="{{session['username']}}" id="from-field" readonly>				</div>
+				<div class="form-group">
+					<label for="to-field">To:</label>
+					<select class="form-control" id="to-field">
+						{% for user in users%}
+							<option>{{user}}</option>
+						{% endfor %}
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label for="message-subject">Subject:</label>
+					<input name="subject" type="text" class="form-control" id="message-subject" required>
+				</div>
+				<div class="form-group">
+					<label for="message-content">Message content:</label>
+					<textarea name="body" class="form-control" id="message-content" rows="3" required></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Send</button>
+			</form>
+			
+		</div>
+	{% endblock %}
+	<div class="form-group">
+		<label for="to-field">To:</label>
+		<input name="to" type="text" class="form-control" id="to-field" required>
+	</div>
